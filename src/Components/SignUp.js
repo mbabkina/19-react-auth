@@ -1,17 +1,19 @@
-import React from 'react'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import './sign-form.sass'
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import { HashRouter as Router, Link } from 'react-router-dom';
+
+import ButtonStyled from './ButtonStyled';
+import './sign-form.sass';
 
 const icon = (
   <svg
@@ -29,7 +31,7 @@ const icon = (
       d='M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z'
     ></path>
   </svg>
-)
+);
 
 function Copyright() {
   return (
@@ -46,7 +48,7 @@ function Copyright() {
       {new Date().getFullYear()}
       {'.'}
     </Typography>
-  )
+  );
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -63,25 +65,24 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-
   },
-  formHalf:{
+  formHalf: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-   },
-   elHalf:{
-    width: '45%'
-   },
+  },
+  elHalf: {
+    width: '45%',
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}))
+}));
 
 export default function SignUp() {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <Container component='main' maxWidth='xs'>
@@ -91,7 +92,7 @@ export default function SignUp() {
         <Typography component='h1' variant='h5'>
           Sign up
         </Typography>
-        <form className={classes.formHalf}   noValidate>
+        <form className={classes.formHalf} noValidate>
           <TextField
             variant='outlined'
             margin='normal'
@@ -115,10 +116,9 @@ export default function SignUp() {
             autoComplete='lastName'
             autoFocus
             className={classes.elHalf}
-
           />
-          </form>
-          <form>
+        </form>
+        <form>
           <TextField
             variant='outlined'
             margin='normal'
@@ -145,25 +145,16 @@ export default function SignUp() {
             control={<Checkbox value='remember' color='primary' />}
             label='I want to receive inspiration, marketing promotions and updates via this email'
           />
-          <Button
-            type='submit'
-            fullWidth
-            variant='contained'
-            color='primary'
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
+          <ButtonStyled>Sign Up</ButtonStyled>
           <Grid container>
             <Grid item>
-
-              <Link  variant='body2' to='/sign-in' 
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+              <Link
+                variant='body2'
+                to='/sign-in'
+                className='MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary'
               >
                 {"'Already have an account? Sign In'"}
               </Link>
-
-              
             </Grid>
           </Grid>
         </form>
@@ -172,5 +163,5 @@ export default function SignUp() {
         <Copyright />
       </Box>
     </Container>
-  )
+  );
 }
